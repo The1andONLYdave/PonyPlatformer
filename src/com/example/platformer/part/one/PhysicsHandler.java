@@ -42,7 +42,7 @@ public class PhysicsHandler implements Runnable{
 			
 			double dist = Math.sqrt(Math.pow(player.posX - collisionEntity.posX, 2) + Math.pow(player.posY - collisionEntity.posY, 2));
 			
-			if ((dist > (60 + collisionEntity.height) || dist > (60 + collisionEntity.width)))
+			if (((dist > (60 + collisionEntity.height)) && (dist > (60 + collisionEntity.width))))
 				continue;
 			
 			if ((collisionEntity.enabled) && (collisionEntity.collides)){
