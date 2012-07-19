@@ -19,7 +19,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class GameActivity extends Activity {
-	static final int LEVEL_COUNT = 10;
+	static final int LEVEL_COUNT = 3;
 	
 	ArrayList<GameEntity> entities;
 	GraphicsHandler graphicsHandler;

@@ -14,13 +14,6 @@
         <item >Level One</item>
         <item >Level Two</item>
         <item >Level Three</item>
-        <item >Level Four</item>
-        <item >Level Five</item>
-        <item >Level Six</item>
-        <item >Level Seven</item>
-        <item >Level Eight</item>
-        <item >Level Nine</item>
-        <item >Level Ten</item>
     </string-array>
     <string name="next">Next</string>
     <string name="back">Back</string>

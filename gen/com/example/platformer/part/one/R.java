@@ -209,13 +209,6 @@ public final class R {
         public static final int level_01=0x7f040000;
         public static final int level_02=0x7f040001;
         public static final int level_03=0x7f040002;
-        public static final int level_04=0x7f040003;
-        public static final int level_05=0x7f040004;
-        public static final int level_06=0x7f040005;
-        public static final int level_07=0x7f040006;
-        public static final int level_08=0x7f040007;
-        public static final int level_09=0x7f040008;
-        public static final int level_10=0x7f040009;
     }
     public static final class string {
         public static final int app_name=0x7f060000;
