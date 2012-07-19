@@ -4,6 +4,7 @@
 
 package com.example.platformer.part.one;
 
+import android.graphics.Point;
 import android.graphics.Rect;
 
 public class PhysicsHandler implements Runnable{
@@ -28,7 +29,7 @@ public class PhysicsHandler implements Runnable{
 		physicsThread.start();
 	}
 	
-	private void detectCollision(PlayerEntity player) {
+	private void detectCollision(PlayerEntity player) {		
 		if (((player.velocity) + player.posX + (player.width / 2) > activity.graphicsHandler.canvasWidth) && (player.velocity > 0)) //FIXME Call to graphicsHandler from PhysicsHandler
 			player.velocity = 0;
 		if (((player.velocity) + player.posX - (player.width / 2) < 0) && (player.velocity < 0))
@@ -38,6 +39,11 @@ public class PhysicsHandler implements Runnable{
 		
 		for (int i = 1; i < activity.entities.size(); i++){
 			GameEntity collisionEntity = activity.entities.get(i);
+			
+			double dist = Math.sqrt(Math.pow(player.posX - collisionEntity.posX, 2) + Math.pow(player.posY - collisionEntity.posY, 2));
+			
+			if ((dist > (60 + collisionEntity.height) || dist > (60 + collisionEntity.width)))
+				continue;
 			
 			if ((collisionEntity.enabled) && (collisionEntity.collides)){
 				Rect entityRect = new Rect(
