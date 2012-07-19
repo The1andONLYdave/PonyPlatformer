@@ -1,3 +1,7 @@
+/*
+ 	Copyright (C) 2012  Jake Drahos
+*/
+
 package com.example.platformer.part.one;
 
 public enum EntityType {

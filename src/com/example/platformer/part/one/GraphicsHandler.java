@@ -1,3 +1,7 @@
+/*
+ 	Copyright (C) 2012  Jake Drahos <drahos.jake@gmail.com>
+*/
+
 package com.example.platformer.part.one;
 
 import android.graphics.Canvas;

@@ -1,3 +1,7 @@
+/*
+ 	Copyright (C) 2012  Jake Drahos <drahos.jake@gmail.com>
+*/
+
 package com.example.platformer.part.one;
 
 public class PlayerEntity extends GameEntity {
