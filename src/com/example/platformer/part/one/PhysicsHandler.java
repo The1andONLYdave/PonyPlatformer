@@ -4,7 +4,6 @@
 
 package com.example.platformer.part.one;
 
-import android.graphics.Point;
 import android.graphics.Rect;
 
 public class PhysicsHandler implements Runnable{
