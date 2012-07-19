@@ -179,17 +179,14 @@ public class GraphicsHandler implements SurfaceHolder.Callback, Runnable{
 				return;
 			
 			if (System.currentTimeMillis() >= (lastTimeChanged + player.frameDelay)){
-				if (player.enabled)
-					player.currentFrame++;
-				if ((player.action == PlayerEntity.ACTION_ARRIVE) && (player.currentFrame >= ARRIVE_LENGTH)){
-					player.action = PlayerEntity.ACTION_IDLE;
-				}
-				
 				player.lockedAction = player.action;
 				player.lockedWidth = player.width;
 				player.lockedHeight = player.height;
 				player.lockedPosX = player.posX;
 				player.lockedPosY = player.posY;
+				
+				if (player.enabled)
+					player.currentFrame++;
 				
 				if (player.lockedAction != player.oldAction)
 					player.currentFrame = 0;
@@ -202,6 +199,11 @@ public class GraphicsHandler implements SurfaceHolder.Callback, Runnable{
 				
 				if ((player.lockedAction == PlayerEntity.ACTION_READ) && (player.currentFrame >= READ_LENGTH))
 					player.currentFrame = 0;
+				
+				if ((player.lockedAction == PlayerEntity.ACTION_ARRIVE) && (player.currentFrame >= ARRIVE_LENGTH)){
+					player.lockedAction = PlayerEntity.ACTION_IDLE;
+					player.action = player.lockedAction;
+				}
 				
 				player.oldAction = player.action;
 				
