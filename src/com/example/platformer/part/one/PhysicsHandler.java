@@ -4,6 +4,7 @@
 
 package com.example.platformer.part.one;
 
+import android.content.Entity;
 import android.graphics.Rect;
 
 public class PhysicsHandler implements Runnable{
@@ -18,7 +19,7 @@ public class PhysicsHandler implements Runnable{
 	}
 	
 	public void stopThread(){
-		threadRunning = false;
+		threadRunning = false;    
 		physicsThread.interrupt();
 	}
 	
@@ -142,6 +143,12 @@ public class PhysicsHandler implements Runnable{
 		}
 	}
 	
+	private void scrollScreenRight(PlayerEntity player){		
+		for (int i = 0; i < activity.entities.size(); i++){
+			activity.entities.get(i).posX -= player.velocity;
+		}
+	}
+	
 	public void run() {
 
 		PlayerEntity player = ((PlayerEntity) activity.entities.get(0));
@@ -155,6 +162,9 @@ public class PhysicsHandler implements Runnable{
 			if (System.currentTimeMillis() > player.nextTimeMove) {
 				player.posX += player.velocity;
 				player.posY -= player.verticalVelocity;
+				
+				if (player.posX > (800 - PlayerEntity.SCROLL_REGION))
+					scrollScreenRight(player);
 				
 				player.nextTimeMove = System.currentTimeMillis() + MOVEMENT_DELAY;
 				
@@ -216,8 +226,13 @@ public class PhysicsHandler implements Runnable{
 				
 				if (player.posY > 425) {//FIXME Hardcoded pixel location
 					player.action = PlayerEntity.ACTION_ARRIVE;
-					player.posX = player.spawnX;
-					player.posY = player.spawnY;
+					
+				GameEntity respawnEntity;
+				for (int i = 0; i < activity.entities.size(); i++){
+					respawnEntity = activity.entities.get(i);
+					respawnEntity.posX = respawnEntity.spawnX;
+					respawnEntity.posY = respawnEntity.spawnY;
+				}
 					player.velocity = 0;
 					player.verticalVelocity = 0;
 					player.commandJump = false;

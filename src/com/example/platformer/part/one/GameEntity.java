@@ -7,6 +7,7 @@ package com.example.platformer.part.one;
 public class GameEntity {
 	EntityType type;
 	double posX, posY;
+	int spawnX, spawnY;
 	boolean enabled = false;
 	int height, width;
 	
@@ -18,5 +19,8 @@ public class GameEntity {
 		this.posY = y;
 		this.height = height;
 		this.width = width;
+
+		spawnX = x;
+		spawnY = y;
 	}
 }

@@ -21,6 +21,8 @@ public class PlayerEntity extends GameEntity {
 	static final int SLIDE_WIDTH = 90;
 	static final int READ_WIDTH = 132;
 	
+	static final double SCROLL_REGION = 200;
+	
 	static final double MAX_VELOCITY = .6;
 	static final double COMMAND_ACCELERATION = .01;
 	static final double FRICTION = .01;
@@ -46,11 +48,7 @@ public class PlayerEntity extends GameEntity {
 	double velocity = 0.0;
 	double verticalVelocity = 0.0;
 	
-	int spawnX, spawnY;
-	
 	public PlayerEntity(int x, int y) {
 		super(EntityType.PLAYER, x, y, SLIDE_WIDTH, PLAYER_HEIGHT);
-		spawnX = x;
-		spawnY = y;
 	}
 }
