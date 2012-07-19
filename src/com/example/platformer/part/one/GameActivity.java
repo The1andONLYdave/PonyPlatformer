@@ -97,6 +97,7 @@ public class GameActivity extends Activity {
 		else {
 	        parseLevelFile(++level);
 	        
+	        physicsHandler.spawnLockScreen = true;
 	        graphicsHandler.refreshEntities();
 		}
     }

@@ -11,6 +11,7 @@ public class PhysicsHandler implements Runnable{
 	GameActivity activity;
 	Thread physicsThread;
 	boolean threadRunning = false;
+	boolean spawnLockScreen = true;
 	
 	static final int MOVEMENT_DELAY = 5; //If you change this, you're gonna have a bad time
 	
@@ -143,12 +144,6 @@ public class PhysicsHandler implements Runnable{
 		}
 	}
 	
-	private void scrollScreenRight(PlayerEntity player){		
-		for (int i = 0; i < activity.entities.size(); i++){
-			activity.entities.get(i).posX -= player.velocity;
-		}
-	}
-	
 	public void run() {
 
 		PlayerEntity player = ((PlayerEntity) activity.entities.get(0));
@@ -164,7 +159,15 @@ public class PhysicsHandler implements Runnable{
 				player.posY -= player.verticalVelocity;
 				
 				if (player.posX > (800 - PlayerEntity.SCROLL_REGION))
-					scrollScreenRight(player);
+					for (int i = 0; i < activity.entities.size(); i++)
+						activity.entities.get(i).posX -= player.velocity;
+				
+				if ((player.posX < (PlayerEntity.SCROLL_REGION)) && !spawnLockScreen)
+					for (int i = 0; i < activity.entities.size(); i++)
+						activity.entities.get(i).posX -= player.velocity;
+				
+				if (player.posX > PlayerEntity.SCROLL_REGION)
+					spawnLockScreen = false;
 				
 				player.nextTimeMove = System.currentTimeMillis() + MOVEMENT_DELAY;
 				
@@ -227,17 +230,19 @@ public class PhysicsHandler implements Runnable{
 				if (player.posY > 425) {//FIXME Hardcoded pixel location
 					player.action = PlayerEntity.ACTION_ARRIVE;
 					
-				GameEntity respawnEntity;
-				for (int i = 0; i < activity.entities.size(); i++){
-					respawnEntity = activity.entities.get(i);
-					respawnEntity.posX = respawnEntity.spawnX;
-					respawnEntity.posY = respawnEntity.spawnY;
-				}
+					GameEntity respawnEntity;
+					for (int i = 0; i < activity.entities.size(); i++){
+						respawnEntity = activity.entities.get(i);
+						respawnEntity.posX = respawnEntity.spawnX;
+						respawnEntity.posY = respawnEntity.spawnY;
+					}
 					player.velocity = 0;
 					player.verticalVelocity = 0;
 					player.commandJump = false;
 					player.commandLeft = false;
 					player.commandRight = false;
+					
+					spawnLockScreen = true;
 				}
 			}
 		}
