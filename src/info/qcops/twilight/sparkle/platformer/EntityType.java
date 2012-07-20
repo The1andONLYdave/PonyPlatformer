@@ -2,7 +2,7 @@
  	Copyright (C) 2012  Jake Drahos
 */
 
-package com.example.platformer.part.one;
+package info.qcops.twilight.sparkle.platformer;
 
 public enum EntityType {
 	PLAYER, 

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.platformer.part.one"
+    package="info.qcops.twilight.sparkle.platformer"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -15,7 +15,7 @@
             android:name="GameActivity"
             android:label="@string/title_activity_main" android:screenOrientation="landscape">
         </activity>
-        <activity android:name=".MainActivity" android:label="@string/title_activity_main" android:screenOrientation="portrait">
+        <activity android:name="info.qcops.twilight.sparkle.platformer.MainActivity" android:label="@string/title_activity_main" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

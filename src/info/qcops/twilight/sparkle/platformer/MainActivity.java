@@ -2,7 +2,9 @@
  	Copyright (C) 2012  Jake Drahos <drahos.jake@gmail.com>
 */
 
-package com.example.platformer.part.one;
+package info.qcops.twilight.sparkle.platformer;
+
+import info.qcops.twilight.sparkle.platformer.R;
 
 import android.app.Activity;
 import android.content.Intent;

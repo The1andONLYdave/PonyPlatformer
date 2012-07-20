@@ -2,7 +2,7 @@
  	Copyright (C) 2012  Jake Drahos <drahos.jake@gmail.com>
 */
 
-package com.example.platformer.part.one;
+package info.qcops.twilight.sparkle.platformer;
 
 public class PlayerEntity extends GameEntity {
 	static final int DIRECTION_LEFT = 0x01;

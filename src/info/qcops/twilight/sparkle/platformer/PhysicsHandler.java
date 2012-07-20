@@ -2,9 +2,8 @@
  	Copyright (C) 2012  Jake Drahos <drahos.jake@gmail.com>
 */
 
-package com.example.platformer.part.one;
+package info.qcops.twilight.sparkle.platformer;
 
-import android.content.Entity;
 import android.graphics.Rect;
 
 public class PhysicsHandler implements Runnable{

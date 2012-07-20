@@ -2,13 +2,16 @@
  	Copyright (C) 2012  Jake Drahos <drahos.jake@gmail.com>
 */
 
-package com.example.platformer.part.one;
+package info.qcops.twilight.sparkle.platformer;
+
+import info.qcops.twilight.sparkle.platformer.R;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+
 
 import android.os.Bundle;
 import android.app.Activity;
